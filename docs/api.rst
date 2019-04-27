@@ -32,9 +32,9 @@ Client
 
 .. warning::
 
-    ``bot.wait_until_ready``_ method must be called before using this library!
+    `bot.wait_until_ready`_ method must be called before using this library!
 
-    .. _``bot.wait_until_ready``: https://discordpy.readthedocs.io/en/latest/api.html#discord.Client.wait_until_ready
+    .. _bot.wait_until_ready: https://discordpy.readthedocs.io/en/latest/api.html#discord.Client.wait_until_ready
 
 .. autoclass:: Client
     :members:
