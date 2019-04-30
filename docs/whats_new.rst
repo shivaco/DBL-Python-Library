@@ -17,6 +17,7 @@ v0.2.1
 * Removed support for discord.py versions lower than 1.0.0
 * Made `get_weekend_status`_ return a boolean value
 * Added webhook example in README
+* Removed ``post_server_count`` and ``get_server_count``
 
 v0.2
 ----
