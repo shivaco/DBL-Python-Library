@@ -65,6 +65,6 @@ Initial release
     * Searching for bots via the api
 
 .. _discordbots.org/api/docs: https://discordbots.org/api/docs
-.. _get_weekend_status: https://dbl-python-library.rtfd.io/en/latest/api.html#dbl.Client.get_weekend_status
-.. _get_bots: https://dbl-python-library.rtfd.io/en/latest/api.html#dbl.Client.get_bots
-.. _get_upvote_info: https://dbl-python-library.rtfd.io/en/latest/api.html#dbl.Client.get_upvote_info
+.. _get_weekend_status: https://dblpy.readthedocs.io/en/latest/api.html#dbl.Client.get_weekend_status
+.. _get_bots: https://dblpy.readthedocs.io/en/latest/api.html#dbl.Client.get_bots
+.. _get_upvote_info: https://dblpy.readthedocs.io/en/latest/api.html#dbl.Client.get_upvote_info
