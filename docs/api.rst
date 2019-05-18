@@ -36,7 +36,7 @@ Client
 Event reference
 ---------------
 
-.. function:: on_dbl_vote()
+.. function:: on_dbl_vote(data)
 
     Called when someone votes for your bot on discordbots.org
 
@@ -56,11 +56,11 @@ Event reference
         # 'isWeekend': False
         # }
 
-.. function:: on_dbl_test()
+.. function:: on_dbl_test(data)
 
     Called when someone tests webhook system for your bot on discordbots.org
 
-    :param data: The data with vote info returned in dict object
+    :param data: The data with test info returned in dict object
 
     Example: ::
 

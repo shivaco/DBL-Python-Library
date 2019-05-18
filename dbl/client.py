@@ -25,14 +25,10 @@ DEALINGS IN THE SOFTWARE.
 """
 
 import asyncio
-import sys
-import traceback
 import logging
 from aiohttp import web
 
 from .http import HTTPClient
-
-from dbl import errors
 
 log = logging.getLogger(__name__)
 
@@ -81,13 +77,13 @@ class Client:
         if self.autopost:
             self.autopost_task = self.loop.create_task(self._auto_post())
 
-    async def ensure_bot_user(self):
+    async def _ensure_bot_user(self):
         await self.bot.wait_until_ready()
         if self.bot_id is None:
             self.bot_id = self.bot.user.id
 
     async def _auto_post(self):
-        await self.ensure_bot_user()
+        await self._ensure_bot_user()
         while not self.bot.is_closed():
             await self.post_guild_count()
             await asyncio.sleep(1800)
@@ -107,7 +103,7 @@ class Client:
         weekend status: bool
             The boolean value of weekend status.
         """
-        await self.ensure_bot_user()
+        await self._ensure_bot_user()
         data = await self.http.get_weekend_status()
         return data['is_weekend']
 
@@ -130,7 +126,7 @@ class Client:
         shard_no: int[Optional]
             The index of the current shard. DBL uses `0 based indexing`_ for shards.
         """
-        await self.ensure_bot_user()
+        await self._ensure_bot_user()
         await self.http.post_guild_count(self.bot_id, self.guild_count(), shard_count, shard_no)
 
     async def get_guild_count(self, bot_id: int = None):
@@ -153,7 +149,7 @@ class Client:
             The date object is returned in a datetime.datetime object
 
         """
-        await self.ensure_bot_user()
+        await self._ensure_bot_user()
         if bot_id is None:
             bot_id = self.bot_id
         return await self.http.get_guild_count(bot_id)
@@ -174,7 +170,7 @@ class Client:
             Info about who upvoted your bot.
 
         """
-        await self.ensure_bot_user()
+        await self._ensure_bot_user()
         return await self.http.get_upvote_info(bot_id)
 
     async def get_bot_info(self, bot_id: int = None):
@@ -195,7 +191,7 @@ class Client:
             Information on the bot you looked up.
             https://discordbots.org/api/docs#bots
         """
-        await self.ensure_bot_user()
+        await self._ensure_bot_user()
         if bot_id is None:
             bot_id = self.bot_id
         return await self.http.get_bot_info(bot_id)
@@ -220,7 +216,7 @@ class Client:
             Returns info on the bots on DBL.
             https://discordbots.org/api/docs#bots
         """
-        await self.ensure_bot_user()
+        await self._ensure_bot_user()
         return await self.http.get_bots(limit, offset)
 
     async def get_user_info(self, user_id: int):
@@ -241,7 +237,7 @@ class Client:
             Info about the user.
             https://discordbots.org/api/docs#users
         """
-        await self.ensure_bot_user()
+        await self._ensure_bot_user()
         return await self.http.get_user_info(user_id)
 
     async def generate_widget_large(
@@ -284,7 +280,7 @@ class Client:
 
         URL of the widget: str
         """
-        await self.ensure_bot_user()
+        await self._ensure_bot_user()
         url = 'https://discordbots.org/api/widget/{0}.png?topcolor={1}&middlecolor={2}&usernamecolor={3}&certifiedcolor={4}&datacolor={5}&labelcolor={6}&highlightcolor={7}'
         if bot_id is None:
             bot_id = self.bot_id
@@ -307,7 +303,7 @@ class Client:
 
         URL of the widget: str
         """
-        await self.ensure_bot_user()
+        await self._ensure_bot_user()
         if bot_id is None:
             bot_id = self.bot_id
         url = 'https://discordbots.org/api/widget/{0}.png'.format(bot_id)
@@ -346,7 +342,8 @@ class Client:
         =======
 
         URL of the widget: str
-        """        await self.ensure_bot_user()
+        """
+        await self._ensure_bot_user()
         url = 'https://discordbots.org/api/widget/lib/{0}.png?avatarbg={1}&lefttextcolor={2}&righttextcolor={3}&leftcolor={4}&rightcolor={5}'
         if bot_id is None:
             bot_id = self.bot_id
@@ -369,7 +366,7 @@ class Client:
 
         URL of the widget: str
         """
-        await self.ensure_bot_user()
+        await self._ensure_bot_user()
         if bot_id is None:
             bot_id = self.bot_id
         url = 'https://discordbots.org/api/widget/lib/{0}.png'.format(bot_id)
