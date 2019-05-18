@@ -71,7 +71,6 @@ class Client:
         self.webhook_path = kwargs.get('webhook_path', '/dblwebhook')
         self.http = HTTPClient(token, loop=self.loop, session=kwargs.get('session'))
         self._is_closed = False
-        #self.task1 = self.loop.create_task(self.__ainit__())
         if self.webhook_port:
             self.task2 = self.loop.create_task(self.webhook())
         if self.autopost:
