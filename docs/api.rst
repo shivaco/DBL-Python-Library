@@ -30,14 +30,51 @@ Client
 
     All of the following functions return their data as a JSON object (except widget generation)!
 
-.. warning::
-
-    `bot.wait_until_ready`_ method must be called before using this library!
-
-    .. _bot.wait_until_ready: https://discordpy.readthedocs.io/en/latest/api.html#discord.Client.wait_until_ready
-
 .. autoclass:: Client
     :members:
+
+Event reference
+---------------
+
+.. function:: on_dbl_vote()
+
+    Called when someone votes for your bot on discordbots.org
+
+    :param data: The data with vote info returned in dict object
+
+    Example: ::
+
+        @bot.event
+        async def on_dbl_vote(data):
+            print(data)
+
+        # Will output the following:
+        # {
+        # 'type': "upvote",
+        # 'user': "247741991310327810",
+        # 'bot': "264811613708746752",
+        # 'isWeekend': False
+        # }
+
+.. function:: on_dbl_test()
+
+    Called when someone tests webhook system for your bot on discordbots.org
+
+    :param data: The data with vote info returned in dict object
+
+    Example: ::
+
+        @bot.event
+        async def on_dbl_test(data):
+            print(data)
+
+        # Will output the following:
+        # {
+        # 'type': "type",
+        # 'user': "247741991310327810",
+        # 'bot': "264811613708746752",
+        # 'isWeekend': True
+        # }
 
 Exceptions
 ----------
@@ -47,6 +84,8 @@ The following exceptions are thrown by the library.
 .. autoexception:: DBLException
 
 .. autoexception:: UnauthorizedDetected
+
+.. autoexception:: InvalidAuthorization
 
 .. autoexception:: ClientException
 

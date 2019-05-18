@@ -136,6 +136,35 @@ With webhook:
         logger = logging.getLogger('bot')
         bot.add_cog(DiscordBotsOrgAPI(bot))
 
+With autopost:
+
+.. code:: py
+
+    import dbl
+    import discord
+    from discord.ext import commands
+
+    import asyncio
+    import logging
+
+
+    class DiscordBotsOrgAPI(commands.Cog):
+        """Handles interactions with the discordbots.org API"""
+
+        def __init__(self, bot):
+            self.bot = bot
+            self.token = 'dbl_token'  #  set this to your DBL token
+            self.dblpy = dbl.Client(self.bot, self.token, autopost=True)
+
+        @commands.Cog.listener()
+        async def on_dbl_vote(self, data):
+            print(data)
+
+    def setup(bot):
+        global logger
+        logger = logging.getLogger('bot')
+        bot.add_cog(DiscordBotsOrgAPI(bot))
+
 .. _discordbots.org: https://discordbots.org/
 .. _discordbots.org/api/docs: https://discordbots.org/api/docs
 .. _here: http://dblpy.rtfd.io
