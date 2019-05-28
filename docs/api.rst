@@ -36,6 +36,10 @@ Client
 Event reference
 ---------------
 
+.. function:: on_guild_post()
+
+    Called when guild count is posted on discordbots.org
+
 .. function:: on_dbl_vote(data)
 
     Called when someone votes for your bot on discordbots.org
