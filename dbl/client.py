@@ -193,7 +193,7 @@ class Client:
         await self._ensure_bot_user()
         return await self.http.get_bot_info(bot_id)
 
-    async def get_bots(self, limit: int = 50, offset: int = 0, sort = None, search: dict = None, fields = None):
+    async def get_bots(self, limit: int = 50, offset: int = 0, sort: str = None, search: dict = None, fields: list = None):
         """This function is a coroutine.
 
         Gets information about listed bots on discordbots.org
