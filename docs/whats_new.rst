@@ -12,7 +12,7 @@ in specific versions.
 
 v0.3.2
 ------
-* ``Client`` class has been renamed to ``DBLClient``
+* **BREAKING CHANGE**: ``Client`` class has been renamed to ``DBLClient``
 
 v0.3.1
 ------
