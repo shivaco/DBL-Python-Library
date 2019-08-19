@@ -12,7 +12,8 @@ in specific versions.
 
 v0.3.2
 ------
-* **BREAKING CHANGE**: ``Client`` class has been renamed to ``DBLClient``
+**BREAKING CHANGE**:
+* ``Client`` class has been renamed to ``DBLClient``
 
 v0.3.1
 ------
@@ -34,7 +35,7 @@ v0.2.1
 * Removed support for discord.py versions lower than 1.0.0
 * Made :meth:`DBLClient.get_weekend_status` return a boolean value
 * Added webhook example in README
-* Removed ``post_server_count`` and ``get_server_count``
+* **BREAKING CHANGE**: Removed ``post_server_count`` and ``get_server_count``
 
 v0.2
 ----
