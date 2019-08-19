@@ -33,7 +33,7 @@ Documentation
 Documentation can be found `here`_
 
 Features
--------
+--------
 
 * POST server count
 * GET bot info, server count, upvote info

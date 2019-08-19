@@ -10,6 +10,10 @@ in specific versions.
 
 .. _changelog:
 
+v0.3.2
+------
+* ``Client`` class has been renamed to ``DBLClient``
+
 v0.3.1
 ------
 * Added ``on_guild_post``, an event that is called when autoposter successfully posts guild count
