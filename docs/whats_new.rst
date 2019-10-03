@@ -10,6 +10,11 @@ in specific versions.
 
 .. _changelog:
 
+v0.3.3
+------
+* Internal changes regarding support of top.gg migration
+* Fixed errors raised when using :meth:`DBLClient.close` without built-in webhook
+
 v0.3.2
 ------
 * **BREAKING CHANGE**: ``Client`` class has been renamed to ``DBLClient``
@@ -79,10 +84,10 @@ Initial release
     * GET bot info, server count, upvote count, upvote info
     * GET all bots
     * GET specific user info
-    * GET widgets (large and small) including custom ones. See `discordbots.org/api/docs`_ for more info.
+    * GET widgets (large and small) including custom ones. See `top.gg/api/docs`_ for more info.
 
 * Not Working / Implemented
 
     * Searching for bots via the api
 
-.. _discordbots.org/api/docs: https://discordbots.org/api/docs
+.. _top.gg/api/docs: https://top.gg/api/docs

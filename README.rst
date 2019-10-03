@@ -5,12 +5,12 @@ DBL Python Library
    :alt: View on PyPi
 .. image:: https://img.shields.io/pypi/pyversions/dblpy.svg
    :target: https://pypi.python.org/pypi/dblpy
-   :alt: v0.3.1
+   :alt: v0.3.3
 .. image:: https://readthedocs.org/projects/dblpy/badge/?version=latest
    :target: https://dblpy.readthedocs.io/en/latest/?badge=latest
    :alt: Documentation Status
 
-A simple API wrapper for `discordbots.org`_ written in Python
+A simple API wrapper for `top.gg`_ written in Python
 
 Installation
 ------------
@@ -39,7 +39,7 @@ Features
 * GET bot info, server count, upvote info
 * GET all bots
 * GET user info
-* GET widgets (large and small) including custom ones. See `discordbots.org/api/docs`_ for more info.
+* GET widgets (large and small) including custom ones. See `top.gg/api/docs`_ for more info.
 * GET weekend status
 * Built-in webhook to help you handle DBL upvotes
 * Automated server count posting
@@ -66,8 +66,8 @@ Without webhook:
     import logging
 
 
-    class DBLAPI(commands.Cog):
-        """Handles interactions with the discordbots.org API"""
+    class TopGG(commands.Cog):
+        """Handles interactions with the top.gg API"""
 
         def __init__(self, bot):
             self.bot = bot
@@ -94,7 +94,7 @@ Without webhook:
     def setup(bot):
         global logger
         logger = logging.getLogger('bot')
-        bot.add_cog(DBLAPI(bot))
+        bot.add_cog(TopGG(bot))
 
 With webhook:
 
@@ -108,8 +108,8 @@ With webhook:
     import logging
 
 
-    class DBLAPI(commands.Cog):
-        """Handles interactions with the discordbots.org API"""
+    class TopGG(commands.Cog):
+        """Handles interactions with the top.gg API"""
 
         def __init__(self, bot):
             self.bot = bot
@@ -141,7 +141,7 @@ With webhook:
     def setup(bot):
         global logger
         logger = logging.getLogger('bot')
-        bot.add_cog(DBLAPI(bot))
+        bot.add_cog(TopGG(bot))
 
 With autopost:
 
@@ -152,8 +152,8 @@ With autopost:
     from discord.ext import commands
 
 
-    class DBLAPI(commands.Cog):
-        """Handles interactions with the discordbots.org API"""
+    class TopGG(commands.Cog):
+        """Handles interactions with the top.gg API"""
 
         def __init__(self, bot):
             self.bot = bot
@@ -164,8 +164,8 @@ With autopost:
             print("Server count posted successfully")
 
     def setup(bot):
-        bot.add_cog(DBLAPI(bot))
+        bot.add_cog(TopGG(bot))
 
-.. _discordbots.org: https://discordbots.org/
-.. _discordbots.org/api/docs: https://discordbots.org/api/docs
+.. _top.gg: https://top.gg/
+.. _top.gg/api/docs: https://top.gg/api/docs
 .. _here: https://dblpy.rtfd.io
